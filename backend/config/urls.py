@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from apps.accounts.views import LoginView, CurrentUserView 
 from apps.courses.views import CourseListView, CourseDetailView
+from apps.teachers.views import TeacherListView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +27,9 @@ urlpatterns = [
     # Courses APIs
     path('api/courses/',CourseListView.as_view(), name='courses' ),
     path("api/courses/<int:pk>/", CourseDetailView.as_view(), name="course-detail"),
+    
+    # Teacher APIs
+    path("api/teachers/", TeacherListView.as_view(), name="teachers"),
     
     # Auth APIs
     path('api/login/',LoginView.as_view(), name='login'),
